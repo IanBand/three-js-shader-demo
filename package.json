@@ -1,0 +1,22 @@
+{
+  "name": "three-js-test",
+  "version": "1.0.0",
+  "description": "three.js proof of concept",
+  "main": "index.js",
+  "author": "Ian Band",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "three": "^0.139.2"
+  },
+  "devDependencies": {
+    "webpack": "^5.72.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.8.1"
+  },
+  "scripts": {
+    "build": "webpack",
+    "serve": "webpack serve",
+    "start": "webpack serve"
+  }
+}
