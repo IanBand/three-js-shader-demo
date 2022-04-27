@@ -1,5 +1,9 @@
 import * as THREE from 'three';
 import * as dat from "lil-gui";
+// import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
+
 
 // remove padding
 document.body.style.margin = 0;
@@ -42,14 +46,35 @@ function animation( time ) {
 
     
 
-	mesh.rotation.x = time / 2000;
-	mesh.rotation.y = time / 1000;
 
-    mesh.position.z = debugVars.objectDistance;
-
-	renderer.render( scene, camera );
 
     // Call tick again on the next frame
     //window.requestAnimationFrame(tick);
 
 }
+
+const clock = new THREE.Clock();
+let previousTime = 0;
+const tick = () => {
+    // timekeeping
+    const elapsedTime = clock.getElapsedTime();
+    const deltaTime = elapsedTime - previousTime;
+    previousTime = elapsedTime;
+
+    // update
+    mesh.rotation.x += deltaTime / 2;
+	mesh.rotation.y += deltaTime / 3;
+
+    mesh.position.z = debugVars.objectDistance;
+
+	
+    // render scene
+    renderer.render( scene, camera );
+    
+
+
+    // Call tick again on the next frame
+    window.requestAnimationFrame(tick);
+};
+
+tick();
