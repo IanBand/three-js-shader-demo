@@ -14,17 +14,17 @@ document.body.style.padding = 0;
 const gui = new dat.GUI();
 
 const debugVars = {
-    zoom: 0.1,
+    fov: 70,
     objectDistance: 0,
     turbulance: 1,
 }
 
-gui.add(debugVars, "zoom", 0, 1);
+gui.add(debugVars, "fov", 10, 150);
 gui.add(debugVars, "objectDistance", -8.5, 0.7);
 gui.add(debugVars, "turbulance", 0, 1);
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-= camera =-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-const camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.01, 10 );
+const camera = new THREE.PerspectiveCamera( debugVars.fov, window.innerWidth / window.innerHeight, 0.01, 10 );
 camera.position.z = 1;
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-= scene + mesh =-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -76,6 +76,7 @@ const tick = () => {
 	mesh.rotation.y += deltaTime / 3;
 
     mesh.position.z = debugVars.objectDistance;
+    camera.setFocalLength(debugVars.fov);
 
 	
     // render scene
