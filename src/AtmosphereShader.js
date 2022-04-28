@@ -19,10 +19,12 @@ const AtmosphereShader = {
         most of the time (in most shaders) we will only be converting from worldspace to screenspace
     */
     vertexShader: /* glsl */ `
-        #include <common>
-
+        
+        varying vec2 vUv;
+        
         void main() {
 
+            vUv = uv;
             # here is the conversion from worldspace to screenspace
             gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
         }
@@ -32,7 +34,6 @@ const AtmosphereShader = {
     */
    // glsl function references https://www.khronos.org/registry/OpenGL-Refpages/gl4/html/fract.xhtml
     fragmentShader: /* glsl */ `
-        #include <common>
         
         varying vec2 v_vTexcoord;
         varying vec4 v_vColour;

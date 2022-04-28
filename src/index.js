@@ -3,7 +3,10 @@ import * as dat from "lil-gui";
 
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
-import { BokehPass } from 'three/examples/jsm/postprocessing/BokehPass.js';
+import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass.js';
+import { CopyShader } from 'three/examples/jsm/shaders/CopyShader.js'; 
+import { AtmosphereShader } from './AtmosphereShader.js'
+//import { BokehPass } from 'three/examples/jsm/postprocessing/BokehPass.js';
 
 
 // remove padding
@@ -43,6 +46,8 @@ document.body.appendChild( renderer.domElement );
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-= post processing =-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 const postprocessing = {};
 const renderPass = new RenderPass( scene, camera );
+
+/*
 let width = window.innerWidth;
 let height = window.innerHeight;
 const bokehPass = new BokehPass( scene, camera, {
@@ -53,14 +58,17 @@ const bokehPass = new BokehPass( scene, camera, {
     width: width,
     height: height
 } );
+*/
+
+const AtmospherePass = new ShaderPass(CopyShader);
 
 const composer = new EffectComposer( renderer );
 
 composer.addPass( renderPass );
-composer.addPass( bokehPass );
+//composer.addPass( bokehPass );
 
 postprocessing.composer = composer;
-postprocessing.bokeh = bokehPass;
+//postprocessing.bokeh = bokehPass;
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-= animation =-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 const clock = new THREE.Clock();
@@ -80,9 +88,8 @@ const tick = () => {
 
 	
     // render scene
-    renderer.render( scene, camera );
+    // renderer.render( scene, camera );
     postprocessing.composer.render( 0.1 );
-    
 
 
     // Call tick again on the next frame
