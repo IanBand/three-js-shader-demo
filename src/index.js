@@ -60,11 +60,13 @@ const bokehPass = new BokehPass( scene, camera, {
 } );
 */
 
-const AtmospherePass = new ShaderPass(CopyShader);
+const copyPass = new ShaderPass(AtmosphereShader);
 
 const composer = new EffectComposer( renderer );
 
 composer.addPass( renderPass );
+composer.addPass( copyPass );
+
 //composer.addPass( bokehPass );
 
 postprocessing.composer = composer;
