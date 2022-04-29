@@ -5,6 +5,10 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.glsl/,
+        type: 'asset/source'
+      },
+      {
         test: /\.(png|jpe?g|gif)$/i,
         use: [
           {
