@@ -12,6 +12,8 @@ Videos of high zoom cameras with the effect we are trying to recreate:
 - [Three Post Processing Documentation](https://threejs.org/docs/#manual/en/introduction/How-to-use-post-processing)
 - [Displacement Shader](https://www.youtube.com/watch?v=dJUPz11LKm4)
 
+## Notes on translating shader code
+Different guides, documentation, and applications will have different naming conventions for the same variables, this can be one source of pain for porting shader code. For instance, ThreeJS docs call the screen texture uniform "tDiffuse" (at least in their copy shader example) and the uv coordinate vUv where those are called v_vTextcoord and gm_BaseTexture in the tutorial that I ported the shader from.
 
 ## Finding out what I need to find out
 
