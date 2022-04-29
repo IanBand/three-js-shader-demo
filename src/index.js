@@ -23,7 +23,7 @@ const debugVars = {
     SH_time_dialation: 0.1,
     SH_size: 0.4,
     SH_strength: 0.02,
-    SH_show_result: 1.0
+    SH_show_result: 1
 }
 
 gui.add(debugVars, "fov", 10, 150);
