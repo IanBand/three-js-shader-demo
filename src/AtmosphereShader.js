@@ -60,8 +60,8 @@ const AtmosphereShader = {
             
             // BUG: pretty sure the distorted vertical and horizontal bars are caused by some float rounding issue, maybe has to do with fract?
             // rewrite logic?
-            distort.x = texture2D( distort_tex, fract(vUv * size		+ vec2(0.0, time * 0.1 * time_dialation))).r		* strength;
-            distort.y = texture2D( distort_tex, fract(vUv * size * 3.4	+ vec2(0.0, time * 1.6 * time_dialation))).g	* strength * 1.3; // make y component of distort bigger, & move slower
+            distort.x = texture2D( distort_tex, fract(vUv * size		+ vec2(0.0, time * -0.1 * time_dialation))).r	* strength;
+            distort.y = texture2D( distort_tex, fract(vUv * size * 3.0	+ vec2(0.0, time * -1.6 * time_dialation))).g	* strength * 1.3; // make y component of distort bigger, & move slower
 
             //// grab the base colour at the distorted texture coordinate:
 			gl_FragColor = texture2D( tDiffuse, vUv + distort);
