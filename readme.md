@@ -2,6 +2,8 @@
 A project exploring post processing in Three.js. It can be used as a guide for using post processing, with either custom or built in shaders.
 This project doubles as a proof of concept for using an atmosphere shader with Three.js
 
+[DEMO](https://ianband.github.io/three-js-shader-demo/root/index.html)
+
 
 Videos of high zoom cameras with the effect we are trying to recreate:
 - https://www.youtube.com/watch?v=O2G2IDji4Lw
