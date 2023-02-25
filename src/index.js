@@ -19,18 +19,18 @@ const gui = new dat.GUI();
 
 const debugVars = {
     fov: 70,
-    objectDistance: 0,
-    SH_time_dialation: 0.1,
-    SH_size: 0.4,
-    SH_strength: 0.02,
+    objectDistance: -2,
+    SH_time_dialation: 0.12,
+    SH_size: 3.85,
+    SH_strength: 0.0515,
     SH_show_result: 1
 }
 
 gui.add(debugVars, "fov", 10, 150);
 gui.add(debugVars, "objectDistance", -8.5, 0.7);
-gui.add(debugVars, "SH_time_dialation", 0, 2);
-gui.add(debugVars, "SH_size", 0, 2);
-gui.add(debugVars, "SH_strength", 0, 0.15);
+gui.add(debugVars, "SH_time_dialation", 0, 0.3);
+gui.add(debugVars, "SH_size", 0, 10);
+gui.add(debugVars, "SH_strength", 0, 0.5);
 gui.add(debugVars, "SH_show_result", 0, 1);
 
 
