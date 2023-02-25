@@ -11,11 +11,11 @@ uniform float strength;		// should be turned into a constant once you're happy w
 
 uniform float show_result;	// debug only. remove this and related lines inside the objects events
 
-// main idea: make strength dependant on distance from camera
+// main idea: make strength dependant on distance from camera, for this we need camera position and woorld coordinate as uniforms
 
 void main() {
 
-    // grab distortion off the distortion texture
+    // grab distortion value from the distortion texture
     vec2 distort;
     
     // BUG: pretty sure the distorted vertical and horizontal bars are caused by some float rounding issue, maybe has to do with fract?
