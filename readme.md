@@ -29,10 +29,4 @@ To use the shader I need to create a post-processing module known as a "pass" th
 
 Post processing is done using the EffectComposer to compose processing Passes. 
 
-## Future:
-
-https://github.com/mrdoob/three.js/blob/master/examples/webgl_framebuffer_texture.html
-
-create tileable perlin noise on a seperate channel and use it as a texture?
-
 
