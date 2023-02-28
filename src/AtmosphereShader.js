@@ -1,6 +1,6 @@
 import * as THREE from 'three';
-import vertexShader from './vertex.glsl';
-import fragmentShader from './frag.glsl';
+import vertexShader from './atmosphere_shader/vertex.glsl';
+import fragmentShader from './atmosphere_shader/frag.glsl';
 import DistortionMap from './distortion_map.png';
 
 const AtmosphereShader = {
